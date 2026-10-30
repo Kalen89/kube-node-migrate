@@ -1,0 +1,17 @@
+# 每路 rsync 限制为 20 MiB/s；扫描和摘要计算仍会读取磁盘。
+excludeNamespaces: [kube-system]
+pvConcurrency: 1
+precopy: true
+precopyRounds: 3
+precopyThreshold: 0s
+rsyncBandwidthLimit: 20480
+reserve:
+  cpu: 300m
+  memory: 1Gi
+  pods: 3
+helper:
+  image: docker.io/rancher/mirrored-library-busybox:1.36.1
+sshd:
+  image: docker.io/utkuozdemir/pv-migrate-sshd:v3.7.0
+rsync:
+  image: docker.io/utkuozdemir/pv-migrate-rsync:v3.7.0

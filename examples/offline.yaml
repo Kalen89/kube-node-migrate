@@ -1,0 +1,14 @@
+# 镜像地址需替换为实际内网仓库。归档按执行机架构选择。
+excludeNamespaces: [kube-system]
+pvConcurrency: 1
+precopy: true
+precopyRounds: 3
+precopyThreshold: 0s
+rsyncBandwidthLimit: 0
+pvMigrateArchive: /opt/kube-node-migrate/pv-migrate_v3.7.0_linux_x86_64.tar.gz
+helper:
+  image: registry.example.com/migration/busybox:1.36.1
+sshd:
+  image: registry.example.com/migration/pv-migrate-sshd:v3.7.0
+rsync:
+  image: registry.example.com/migration/pv-migrate-rsync:v3.7.0

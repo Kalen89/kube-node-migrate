@@ -1,0 +1,13 @@
+# 按命名空间规则迁移业务 Pod/PVC；旧机器下线由用户决定。依赖路径按此配置文件目录解析。
+excludeNamespaces: [kube-system]
+pvConcurrency: 1
+precopy: true
+precopyRounds: 3
+precopyThreshold: 0s
+rsyncBandwidthLimit: 51200
+reserve:
+  cpu: 300m
+  memory: 1Gi
+# 使用现场可信镜像仓库地址时，在 helper、sshd、rsync 下覆盖 image 和 resources。
+# pvMigrate: /opt/tools/pv-migrate
+# filesystemHelper: /opt/tools/kube-node-fs-linux-amd64

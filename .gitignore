@@ -1,0 +1,9 @@
+/bin/
+/records/
+/.kube-node-migrate/
+__pycache__/
+*.test
+coverage.out
+state.json
+state.json.*
+*.log

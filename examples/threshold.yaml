@@ -1,0 +1,14 @@
+# 最多尝试 5 轮，一轮可信 rsync 容器耗时不超过 45 秒即可通过策略。
+# 该阈值不是最终停机时间承诺。
+excludeNamespaces: [kube-system]
+pvConcurrency: 1
+precopy: true
+precopyRounds: 5
+precopyThreshold: 45s
+rsyncBandwidthLimit: 0
+helper:
+  image: docker.io/rancher/mirrored-library-busybox:1.36.1
+sshd:
+  image: docker.io/utkuozdemir/pv-migrate-sshd:v3.7.0
+rsync:
+  image: docker.io/utkuozdemir/pv-migrate-rsync:v3.7.0

@@ -1,0 +1,4 @@
+# 白名单优先：只迁移 prod、pre、test。
+# 省略 namespaces 或设为 [] 时，才使用下面的黑名单。
+namespaces: [prod, pre, test]
+excludeNamespaces: [kube-system, monitoring, logging]
